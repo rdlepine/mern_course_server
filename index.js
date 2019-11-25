@@ -33,8 +33,9 @@ if(clusterSize > 1) {
     } else {
     
         const app = express()
+        app.use(express.static('public'))
         app.use(express.json())
-        app.use('/movies', movieRouter)
+        app.use('/api/movies', movieRouter)
 
         app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
     }
